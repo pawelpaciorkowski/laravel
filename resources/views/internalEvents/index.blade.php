@@ -9,6 +9,11 @@
             ➕ Dodaj nowe wydarzenie
         </a>
 
+        <a href="{{ route('tasks.index') }}" class="btn btn-outline-secondary">
+            📋 Lista zadań
+        </a>
+
+
         <form method="GET" action="{{ route('internal-events.index') }}">
             <div class="input-group">
                 <select name="status" class="form-select" onchange="this.form.submit()">

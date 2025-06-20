@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InternalEventsController;
+use App\Http\Controllers\TaskController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -20,3 +21,5 @@ Route::put('/internal-events/{id}', [InternalEventsController::class, 'update'])
 
 // Usuwanie
 Route::delete('/internal-events/{id}', [InternalEventsController::class, 'destroy'])->name('internal-events.destroy');
+
+Route::resource('tasks', TaskController::class);

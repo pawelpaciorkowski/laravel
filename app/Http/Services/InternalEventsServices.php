@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Collection;
 
 class InternalEventsServices
 {
-    public function get()
+    public function getInternalEvents()
     {
         return InternalEvent::all();
     }
