@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container mt-5">
-    <h1>Internal Events</h1>
+    <h1>Wydarzenia</h1>
 
     <div class="d-flex  align-items-center mb-4 flex-wrap gap-2">
         <a href="{{ route('internal-events.create') }}" class="btn btn-success">

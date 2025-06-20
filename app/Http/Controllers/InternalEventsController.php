@@ -41,8 +41,8 @@ class InternalEventsController extends Controller
     {
         $validated = $request->validate([
             'Title' => 'required|string|max:255',
-            'ShortDescription' => 'nullable|string',
-            'ContentHTML' => 'nullable|string',
+            'ShortDescription' => 'required|string',
+            'ContentHTML' => 'required|string',
             'EventDateTime' => 'required|date',
             'Link' => 'nullable|string|max:255',
             'PublishDateTime' => 'required|date',
@@ -78,8 +78,8 @@ class InternalEventsController extends Controller
     {
         $validated = $request->validate([
             'Title' => 'required|string|max:255',
-            'ShortDescription' => 'nullable|string',
-            'ContentHTML' => 'nullable|string',
+            'ShortDescription' => 'required|string',
+            'ContentHTML' => 'required|string',
             'EventDateTime' => 'required|date',
             'Link' => 'nullable|string|max:255',
         ], [

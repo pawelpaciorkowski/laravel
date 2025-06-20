@@ -42,7 +42,7 @@ class TaskController extends Controller
     public function store(Request $request)
     {
         $this->taskService->create($request->all());
-        return redirect()->route('tasks.index');
+        return redirect()->route('tasks.index')->with('success', 'Nowe zadanie zostało pomyślnie dodane!');
     }
 
     /**
@@ -61,7 +61,7 @@ class TaskController extends Controller
     public function update(Request $request, string $id)
     {
         $this->taskService->update((int)$id, $request->all());
-        return redirect()->route('tasks.index');
+        return redirect()->route('tasks.index')->with('success', 'Zadanie zostało pomyślnie zaktualizowane!');
     }
 
     /**

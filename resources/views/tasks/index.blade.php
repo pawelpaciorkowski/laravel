@@ -9,8 +9,8 @@
             ➕ Dodaj nowe zadanie
         </a>
 
-        <a href="http://127.0.0.1:8001/internal-events" class="btn btn-outline-secondary">
-            🔙 Powrót do wydarzeń
+        <a href="{{ route('internal-events.index') }}" class="btn btn-outline-secondary">
+            📋 Powrót do wydarzeń
         </a>
     </div>
 

@@ -44,18 +44,18 @@
         </div>
 
         <div class="form-check mb-2">
-            <input class="form-check-input" type="checkbox" name="IsPublic" {{ $event->IsPublic ? 'checked' : '' }}>
-            <label class="form-check-label">Publiczne</label>
+            <input class="form-check-input" type="checkbox" name="IsPublic" id="isPublic" {{ old('IsPublic', $event->IsPublic) ? 'checked' : '' }}>
+            <label class="form-check-label" for="isPublic">Publiczne</label>
         </div>
 
         <div class="form-check mb-2">
-            <input class="form-check-input" type="checkbox" name="IsCancelled" {{ $event->IsCancelled ? 'checked' : '' }}>
-            <label class="form-check-label">Anulowane</label>
+            <input class="form-check-input" type="checkbox" name="IsCancelled" id="isCancelled" {{ old('IsCancelled', $event->IsCancelled) ? 'checked' : '' }}>
+            <label class="form-check-label" for="isCancelled">Anulowane</label>
         </div>
 
         <div class="form-check mb-4">
-            <input class="form-check-input" type="checkbox" name="IsActive" {{ $event->IsActive ? 'checked' : '' }}>
-            <label class="form-check-label">Aktywne</label>
+            <input class="form-check-input" type="checkbox" name="IsActive" id="isActive" {{ old('IsActive', $event->IsActive) ? 'checked' : '' }}>
+            <label class="form-check-label" for="isActive">Aktywne</label>
         </div>
 
         <button type="submit" class="btn btn-primary">💾 Zapisz zmiany</button>
