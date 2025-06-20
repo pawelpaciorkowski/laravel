@@ -18,6 +18,33 @@ class TaskService
     }
 
     /**
+     * Pobiera wszystkie nieaktywne zadania (kosz).
+     *
+     * @return Collection
+     */
+    public function getInactiveTasks(): Collection
+    {
+        return Task::with('internalEvent')->where('IsActive', false)->get();
+    }
+
+    /**
+     * Przywraca zadanie z kosza.
+     *
+     * @param int $id
+     * @return bool
+     */
+    public function restore(int $id): bool
+    {
+        $task = $this->getTaskById($id);
+        if ($task) {
+            // Ustawiamy flagę IsActive na true i aktualizujemy datę edycji
+            $task->update(['IsActive' => true, 'EditDateTime' => now()]);
+            return true;
+        }
+        return false;
+    }
+
+    /**
      * Pobiera pojedyncze zadanie po jego ID.
      *
      * @param int $id
@@ -26,6 +53,22 @@ class TaskService
     public function getTaskById(int $id): ?Task
     {
         return Task::find($id);
+    }
+
+    /**
+     * Trwale usuwa zadanie z bazy danych.
+     *
+     * @param int $id
+     * @return bool
+     */
+    public function forceDelete(int $id): bool
+    {
+        $task = $this->getTaskById($id);
+        if ($task) {
+            $task->delete(); // To jest fizyczne usunięcie
+            return true;
+        }
+        return false;
     }
 
     /**

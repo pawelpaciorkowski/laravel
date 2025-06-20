@@ -8,6 +8,11 @@
         <a href="{{ route('tasks.create') }}" class="btn btn-success">
             ➕ Dodaj nowe zadanie
         </a>
+        <a href="{{ route('tasks.trash') }}" class="btn btn-outline-secondary">
+            🗑️ Kosz
+        </a>
+
+
 
         <a href="{{ route('internal-events.index') }}" class="btn btn-outline-secondary">
             📋 Powrót do wydarzeń

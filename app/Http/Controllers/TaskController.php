@@ -72,4 +72,32 @@ class TaskController extends Controller
         $this->taskService->delete((int)$id);
         return redirect()->route('tasks.index');
     }
+
+    /**
+     * Wyświetla listę zadań w koszu.
+     */
+    public function trash()
+    {
+        $tasks = $this->taskService->getInactiveTasks();
+        return view('tasks.trash', ['list' => $tasks]);
+    }
+
+    /**
+     * Przywraca zadanie z kosza.
+     */
+    public function restore(string $id)
+    {
+        $this->taskService->restore((int)$id);
+        // Po przywróceniu, wróć na stronę kosza z komunikatem o sukcesie
+        return redirect()->route('tasks.trash')->with('success', 'Zadanie zostało pomyślnie przywrócone!');
+    }
+
+    /**
+     * Trwale usuwa zadanie z bazy.
+     */
+    public function forceDelete(string $id)
+    {
+        $this->taskService->forceDelete((int)$id);
+        return redirect()->route('tasks.trash')->with('success', 'Zadanie zostało trwale usunięte.');
+    }
 }
